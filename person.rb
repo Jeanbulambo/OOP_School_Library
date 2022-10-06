@@ -1,6 +1,6 @@
 require_relative './nameable'
 
-class Person
+class Person < Nameable
   attr_reader :id
   attr_accessor :name, :age
 
@@ -9,6 +9,8 @@ class Person
     @name = name
     @age = age
     @parent_permission = parent_permission
+    @rentals = []
+    super()
   end
 
   def can_use_services?
@@ -17,6 +19,10 @@ class Person
 
   def correct_name
     @name
+  end
+
+  def add_rental(rental)
+    @rentals.push(rental)
   end
 
   private
