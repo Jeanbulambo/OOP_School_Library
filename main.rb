@@ -1,3 +1,4 @@
+require 'pry-byebug'
 require './app'
 
 class Apps
@@ -6,7 +7,7 @@ class Apps
     puts "\n"
     puts 'Please select an option by entering a number: '
 
-    @list = {
+    @list = { 
       '1' => 'List all books',
       '2' => 'List all people',
       '3' => 'Create a person',
@@ -15,8 +16,7 @@ class Apps
       '6' => 'List all rentals for a given person id',
       '7' => 'Exit'
     }
-
-    @list.each do |index, string|
+    @list.each do |string, index|
       puts "#{index} - #{string}"
     end
     Integer(gets.chomp)
