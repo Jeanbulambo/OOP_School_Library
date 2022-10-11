@@ -2,7 +2,7 @@ require './app'
 
 class Apps
   def self.menu
-    puts 'Welcome to the School Library'
+    puts 'Welcome to our School Library'
     puts "\n"
     puts 'Please select an option by entering a number: '
 
@@ -39,7 +39,7 @@ class Apps
     when 6
       result.rentals.list_rentals(result.people.people)
     when 7
-      puts 'Thank you for using the app!'
+      puts 'Thank you for using this app!'
       exit
     else
       puts 'Choose a number between 1 to 7'

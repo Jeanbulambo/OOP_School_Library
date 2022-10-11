@@ -5,6 +5,7 @@ require 'date'
 
 class App
   attr_accessor :books, :people, :rentals
+
   def initialize
     @books = Books.new
     @people = Persons.new

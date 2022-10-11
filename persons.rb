@@ -4,12 +4,13 @@ require_relative './student'
 
 class Persons
   attr_accessor :people
+
   def initialize
     @people = []
   end
 
   def create_people
-    print 'Do you want to create a student (1) or a teacher (2)? Please select an option: '
+    print 'Do you want to create a student (1) or a teacher (2)? Please select a related option: '
     option = gets.chomp
 
     case option

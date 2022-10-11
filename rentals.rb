@@ -36,5 +36,4 @@ class Rentals
       puts "Date: #{i.date}, Book: '#{i.book.title}' by #{i.book.author}" if i.person.id.to_i == person_id.to_i
     end
   end
-
 end
