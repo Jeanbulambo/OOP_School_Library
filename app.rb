@@ -46,10 +46,8 @@ class App
       create_teacher
     else
       puts 'Please enter a valid input'
-      return
+      nil
     end
-
-    puts 'Person created successfully'
   end
 
   # Add a student
@@ -60,7 +58,11 @@ class App
     print 'Name: '
     name = gets.chomp
 
-    student = Student.new(age, nil, name)
+    print 'Has parent permission? [Y/N]: '
+    parent_permission = gets.chomp
+    parent_permission = parent_permission.downcase == 'y'
+
+    student = Student.new(age, name, parent_permission)
     @people.push(student)
 
     puts 'Student added successfully'
