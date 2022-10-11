@@ -2,7 +2,7 @@ require './app'
 
 class Apps
   def self.menu
-    puts 'Welcome to the School Library'
+    puts 'Welcome to our School Library'
     puts "\n"
     puts 'Please select an option by entering a number: '
 
@@ -27,19 +27,19 @@ class Apps
   loop do
     case menu
     when 1
-      result.list_books
+      result.books.list_books
     when 2
-      result.list_people
+      result.people.list_people
     when 3
-      result.create_people
+      result.people.create_people
     when 4
-      result.create_book
+      result.books.create_book
     when 5
-      result.create_rental
+      result.rentals.create_rental(result.books.books, result.people.people)
     when 6
-      result.list_rentals
+      result.rentals.list_rentals(result.people.people)
     when 7
-      puts 'Thank you for using the app!'
+      puts 'Thank you for using this app!'
       exit
     else
       puts 'Choose a number between 1 to 7'
