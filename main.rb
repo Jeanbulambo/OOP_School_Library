@@ -27,17 +27,17 @@ class Apps
   loop do
     case menu
     when 1
-      result.list_books
+      result.books.list_books
     when 2
-      result.list_people
+      result.people.list_people
     when 3
-      result.create_people
+      result.people.create_people
     when 4
-      result.create_book
+      result.books.create_book
     when 5
-      result.create_rental
+      result.rentals.create_rental(result.books.books, result.people.people)
     when 6
-      result.list_rentals
+      result.rentals.list_rentals(result.people.people)
     when 7
       puts 'Thank you for using the app!'
       exit
