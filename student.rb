@@ -6,6 +6,16 @@ class Student < Person
     @classroom = classroom
   end
 
+  def export_json
+    {
+      'id' => @id,
+      'name' => @name,
+      'age' => @age,
+      'parent_permission' => @parent_permission,
+      'classroom' => @classroom
+    }
+  end
+
   def play_hook
     "¯\(ツ)/¯"
   end

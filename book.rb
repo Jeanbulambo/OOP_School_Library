@@ -8,6 +8,12 @@ class Book
     @rentals = []
   end
 
+  def export_json
+    {
+      'Title' => @title,
+      'Author' => @author
+    }
+
   def add_rental(date, person)
     Rental.new(date, self, person)
   end
