@@ -1,7 +1,8 @@
-require_relative 'books'
-require_relative 'persons'
-require_relative 'rentals'
+require_relative './books'
+require_relative './persons'
+require_relative './rentals'
 require 'date'
+require 'json'
 
 class App
   attr_accessor :books, :people, :rentals

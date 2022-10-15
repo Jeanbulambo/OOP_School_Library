@@ -1,6 +1,9 @@
-require_relative 'book'
+require_relative './book'
+require_relative './storage'
+require 'json'
 
 class Books
+  include Storage
   attr_accessor :books
 
   def initialize
@@ -14,9 +17,9 @@ class Books
     print 'Author: '
     author = gets.chomp
 
-    book = Book.new(title, author)
+    book = Book.new(title, author, nil)
     @books.push(book)
-
+    save_book(book)
     puts 'Book created successfully'
   end
 

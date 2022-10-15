@@ -1,8 +1,10 @@
-require_relative 'person'
+require_relative './person'
 require_relative './teacher'
 require_relative './student'
+require_relative './storage'
 
 class Persons
+  include Storage
   attr_accessor :people
 
   def initialize
@@ -35,9 +37,9 @@ class Persons
     parent_permission = gets.chomp
     parent_permission = parent_permission.downcase == 'y'
 
-    student = Student.new(age, name, parent_permission)
+    student = Student.new(nil, age, name, parent_permission)
     @people.push(student)
-
+    save_student(student)
     puts 'Student added successfully'
   end
 
@@ -51,8 +53,9 @@ class Persons
     print 'Specialization: '
     specialization = gets.chomp
 
-    teacher = Teacher.new(age, specialization, name)
+    teacher = Teacher.new(nil, age, specialization, name)
     @people.push(teacher)
+    save_teacher(teacher)
     puts 'Teacher added successfully'
   end
 

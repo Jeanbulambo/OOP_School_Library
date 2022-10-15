@@ -1,6 +1,10 @@
-require_relative 'rental'
+require_relative './rental'
+require_relative './storage'
 
 class Rentals
+  include Storage
+  attr_accessor :rentals
+
   def initialize
     @rentals = []
   end
@@ -23,6 +27,7 @@ class Rentals
       date = gets.chomp.to_s
       rental_detail = Rental.new(date, books[rental_book], people[rental_person])
       @rentals.push(rental_detail)
+      save_rentals(rental_detail)
       puts 'Rental Successfully Created'
     end
   end
