@@ -1,19 +1,13 @@
+require 'securerandom'
 require_relative './person'
 
 class Student < Person
-  def initialize(age, name = 'Unknown', parent_permission = 'true', classroom = '')
-    super(age, name, parent_permission: parent_permission)
-    @classroom = classroom
-  end
+  attr_accessor :classroom
 
-  def export_json
-    {
-      'id' => @id,
-      'name' => @name,
-      'age' => @age,
-      'parent_permission' => @parent_permission,
-      'classroom' => @classroom
-    }
+  def initialize(id, age, name = 'Unknown', parent_permission = 'true', classroom = '')
+    super(age, name, parent_permission: parent_permission)
+    @id = id || SecureRandom.random_number(1000)
+    @classroom = classroom
   end
 
   def play_hook
