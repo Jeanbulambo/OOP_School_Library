@@ -11,7 +11,7 @@ describe Student do
       expect(student.age).to eq 31
     end
 
-    it "Should return false as the Student parent_permission" do
+    it 'Should return false as the Student parent_permission' do
       expect(student.parent_permission).to eq false
     end
 
