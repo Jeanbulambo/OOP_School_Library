@@ -4,6 +4,8 @@ AllCops:
     - "Guardfile"
     - "Rakefile"
     - "node_modules/**/*"
+    - "./student.rb"
+    - "./storage.rb"
 
   DisplayCopNames: true
 

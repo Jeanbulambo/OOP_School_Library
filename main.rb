@@ -1,4 +1,5 @@
 require './app'
+require './storage'
 
 class Apps
   def self.menu
@@ -22,22 +23,25 @@ class Apps
     Integer(gets.chomp)
   end
 
-  result = App.new
+  app = App.new
+  app.books.load_books(app.books.books)
+  app.people.load_persons(app.people.people)
+  app.rentals.load_rentals(app.books.books, app.people.people)
 
   loop do
     case menu
     when 1
-      result.books.list_books
+      app.books.list_books
     when 2
-      result.people.list_people
+      app.people.list_people
     when 3
-      result.people.create_people
+      app.people.create_people
     when 4
-      result.books.create_book
+      app.books.create_book
     when 5
-      result.rentals.create_rental(result.books.books, result.people.people)
+      app.rentals.create_rental(app.books.books, app.people.people)
     when 6
-      result.rentals.list_rentals(result.people.people)
+      app.rentals.list_rentals(app.people.people)
     when 7
       puts 'Thank you for using this app!'
       exit
